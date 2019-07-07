@@ -1,6 +1,12 @@
 # docker-compose-node
 docker compose sample project using node.js application.
 
+RUN project
+```
+docker-compose up
+```
+
+## TEST
 ### 1. node.js application server
 ```
 docker build --tag=node-api
