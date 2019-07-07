@@ -9,7 +9,7 @@ app.use(function(req, res, next) {
 });
 
 app.get("/", (req, res) => {
-	res.send({ items : ["Chocolate", "Shooting Star", "Mother is an alien"]});
+	res.send({ items : ["item 1", "item 2", "item 3", "item 4"]});
 });
 
 app.listen(PORT, () => {
