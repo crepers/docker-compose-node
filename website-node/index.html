@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" onclick="getIcecream();" value="GET Icecream"/>
+	<ul id="flavor"></ul>
+</body>
+<script>
+	const outside_url = "http://localhost:3000";
+
+	const getIcecream = () => {
+		fetch(outside_url)
+			.then(res => {
+				if(res.ok) {
+					res.json().then(data => {
+						const ul = document.getElementById("flavor");
+						data["items"].forEach(item => {
+							let li = document.createElement("LI");
+							let text = document.createTextNode(item);
+							li.appendChild(text);
+							ul.appendChild(li);
+						});
+					});
+				}
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
+</script>
+</html>

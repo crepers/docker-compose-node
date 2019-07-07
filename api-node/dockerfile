@@ -1,0 +1,14 @@
+FROM node
+MAINTAINER woochul <crepers12@hanmail.net>
+
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+COPY . /app
+CMD node app.js
+
+EXPOSE 3000
+
+#docker build --tag=node-api
+#docker run -p 3000:80 --name node-api node
+#open http://localhost:3000 on the browser

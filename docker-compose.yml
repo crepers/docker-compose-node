@@ -1,0 +1,27 @@
+version: "3"                # Version of YAML file format
+
+services:
+  api-node:                 # Service 1 : API Server
+    build: ./api-node       # Build image from api-node directory
+    volumes:                # For executing live code change
+      - ./api-node:/app
+    ports:                  # Express host port 3000
+      - 3000:80
+
+  website-php:              # Service 2 : PHP Web Site
+    image: php:apache       # Build image from php:apache
+    volumes:
+      - ./website-php:/var/www/html
+    ports:
+      - 4000:80
+    depends_on:             # Run after api-node service
+      - api-node
+
+  website-node:             # Service 3 : Node Web Site
+    build: ./website-node   # Build image from website-node directory
+    volumes:
+      - ./website-node:/app
+    ports:
+      - 5000:80
+    depends_on:
+      - api-node
