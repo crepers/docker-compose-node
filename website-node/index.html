@@ -4,18 +4,18 @@
 	<title>Document</title>
 </head>
 <body>
-	<input type="button" onclick="getIcecream();" value="GET Icecream"/>
-	<ul id="flavor"></ul>
+	<input type="button" onclick="getItems();" value="GET Items from API"/>
+	<ul id="itemList"></ul>
 </body>
 <script>
 	const outside_url = "http://localhost:3000";
 
-	const getIcecream = () => {
+	const getItems = () => {
 		fetch(outside_url)
 			.then(res => {
 				if(res.ok) {
 					res.json().then(data => {
-						const ul = document.getElementById("flavor");
+						const ul = document.getElementById("itemList");
 						data["items"].forEach(item => {
 							let li = document.createElement("LI");
 							let text = document.createTextNode(item);
