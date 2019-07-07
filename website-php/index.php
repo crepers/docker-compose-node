@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Document</title>
+	<title>Document PHP web site</title>
 </head>
 <body>
-	<p>Icecream menu</p>
+	<p>Item List</p>
 	<ul>
 		<?php
 			$json = file_get_contents('http://api-node/');
