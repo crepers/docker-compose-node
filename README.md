@@ -1,4 +1,5 @@
-# docker-compose-node
+# Docker-Compose Node.js
+
 docker compose sample project using node.js application.
 
 RUN project
